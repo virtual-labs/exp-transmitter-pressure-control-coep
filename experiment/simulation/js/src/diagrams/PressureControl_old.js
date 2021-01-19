@@ -7,10 +7,24 @@ function PressureControl(){
 	
     //x = 310;
 	//y = 160;
+	var w = 900;
+    var h = 500;
 	
-	x = 390;
-	y = 290;
+var width = $(window).width();
 
+  if ($(window).width() < 500) {
+	    width = $(this).width();
+	    paper = new Raphael(document.getElementById('canvas'), '100%', 500);
+	paper.setViewBox(0,0,w,h,true);
+	paper.setSize('100%', 500);
+  }else
+  {
+      paper = new Raphael(document.getElementById('canvas'), '100%', 700);
+	paper.setViewBox(0,0,w,h,true);
+	paper.setSize('100%', 700);
+  }
+    x = 390;
+	y = 290;
 	
 	var PL_tank = PL_Tank (x, y);
     PTCircle = PC_PTCircleWithLabel((x+150),(y-70), 25, "PT 100");	
